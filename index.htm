@@ -1,0 +1,1382 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#0E0E10" />
+  <title>Gleiciany Alves · Imóveis de Alto Padrão</title>
+  <meta name="description" content="Curadoria de imóveis de alto padrão e atendimento personalizado. Casas e apartamentos exclusivos com a corretora Gleiciany Alves." />
+  <meta name="keywords" content="imóveis de luxo, alto padrão, casas exclusivas, apartamentos de luxo, Gleiciany Alves, corretora, imóveis premium" />
+  <meta property="og:title" content="Gleiciany Alves · Imóveis de Alto Padrão" />
+  <meta property="og:description" content="Curadoria de imóveis de alto padrão e atendimento personalizado." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="./imgs/hero.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%230E0E10'/><text x='50%25' y='58%25' font-family='Georgia' font-size='38' fill='%23C8A86A' text-anchor='middle' font-style='italic'>G</text></svg>" />
+  <style>
+    /* ---------- DESIGN TOKENS ---------- */
+   /* ---------- DESIGN TOKENS (DARK MODE PRESET) ---------- */
+  :root {
+    /* O antigo Ivory (fundo geral claro) vira o preto profundo */
+  --ivory: #0A0A0A;     
+    
+    /* O antigo Cream (fundo de seções/cards) vira um cinza/grafite bem sutil */
+   --cream: #121212;    
+    
+    /* O antigo Ink (que era o texto quase preto) agora vira o texto principal claro */
+    --ink: #FAFAFA;        
+    
+    /* O antigo Graphite (usado em textos secundários) vira o cinza de apoio */
+    --graphite: #E4E4E7;   
+    
+    /* Mantemos o Champagne idêntico, ele vai destacar muito mais no escuro */
+    --champagne: #C8A86A;  
+    
+    /* Mantemos a Terracotta idêntica para os detalhes quentes */
+    --terracotta: #8C5A4A; 
+    
+    /* Textos mudos ou desativados ganham um tom de cinza médio para não sumirem */
+    --muted: #A1A1AA;      
+    
+    /* As linhas divisórias precisam ficar escuras para não recortarem o layout */
+    --line: #27272A;       
+    
+    /* Ajuste sutil nas sombras para o ambiente escuro (usando opacidade menor sobre o preto) */
+    --shadow-1: 0 1px 2px rgba(0,0,0,.5), 0 8px 24px rgba(0,0,0,.3);
+    --shadow-2: 0 10px 40px rgba(0,0,0,.6);
+    
+    /* Preserva as estruturas, fontes e raios de borda originais */
+    --radius: 18px;
+    --container: 1280px;
+    --serif: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+    --sans: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  }
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+    body{
+      margin:0;
+      background:var(--ivory);
+      color:var(--ink);
+      font-family:var(--sans);
+      font-size:16px;
+      line-height:1.65;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+      overflow-x:hidden;
+    }
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+    h1,h2,h3,h4{margin:0;font-family:var(--serif);font-weight:500;letter-spacing:-.01em;line-height:1.05;color:var(--ink)}
+    h2{font-size:clamp(2rem,4.2vw,3.4rem)}
+    h3{font-size:clamp(1.25rem,1.6vw,1.5rem);font-family:var(--sans);font-weight:600;text-transform:uppercase;letter-spacing:.18em;color:var(--ink)}
+    p{margin:0}
+    .container{max-width:var(--container);margin:0 auto;padding:0 32px}
+    @media (max-width:640px){.container{padding:0 20px}}
+    .eyebrow{font-family:var(--sans);font-size:.72rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--champagne)}
+    .hairline{width:48px;height:1px;background:var(--champagne);display:inline-block;vertical-align:middle;margin-right:14px}
+
+    /* ---------- BUTTONS ---------- */
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 28px;border-radius:999px;font-weight:500;font-size:.95rem;letter-spacing:.02em;transition:transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;cursor:pointer;border:1px solid transparent;white-space:nowrap}
+    .btn-primary{background:var(--ink);color:var(--ivory);box-shadow:0 6px 18px rgba(14,14,16,.18)}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(14,14,16,.28)}
+    .btn-ghost{border:1px solid rgba(14,14,16,.25);color:var(--ink);background:transparent}
+    .btn-ghost:hover{background:var(--ink);color:var(--ivory);transform:translateY(-2px)}
+    .btn-ghost.on-dark{border-color:rgba(255,255,255,.4);color:#fff}
+    .btn-ghost.on-dark:hover{background:#fff;color:var(--ink)}
+    .btn-whatsapp{
+        background: var(--champagne) !important;
+        color: #0A0A0A !important;
+        font-weight: 600;
+    }
+    .btn-whatsapp:hover{
+        background: transparent !important;
+        color: var(--champagne) !important;
+        border-color: var(--champagne) !important;
+        transform: translateY(-2px);
+    }
+    .btn svg{width:18px;height:18px}
+
+    /* ---------- NAV ---------- */
+    .nav{position:fixed;top:0;left:0;right:0;z-index:80;padding:18px 0;transition:all .35s ease;backdrop-filter:blur(0)}
+    .nav.scrolled{background:rgba(250,247,242,.85);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line);padding:12px 0}
+    .nav-row{display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:inline-flex;align-items:baseline;gap:10px;font-family:var(--serif);font-size:1.4rem;color:#fff;letter-spacing:.01em}
+    .nav.scrolled .brand{color:var(--ink)}
+    .brand .dot{display:inline-block;width:7px;height:7px;border-radius:999px;background:var(--champagne);transform:translateY(-3px)}
+    .nav-links{display:flex;align-items:center;gap:32px}
+    .nav-links a{font-size:.92rem;color:#fff;opacity:.85;position:relative;transition:opacity .2s}
+    .nav.scrolled .nav-links a{color:var(--ink);opacity:.7}
+    .nav-links a:hover{opacity:1}
+    .nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+    .nav-links a:hover::after{transform:scaleX(1)}
+    .nav-cta{padding:10px 18px;font-size:.85rem}
+    @media (max-width:880px){.nav-links{display:none}}
+
+    /* ---------- HERO ---------- */
+    .hero{position:relative;height:100vh;min-height:680px;display:flex;align-items:center;color:#fff;overflow:hidden;background:#1a1612}
+    .hero-bg{position:absolute;inset:0;z-index:0}
+    .hero-bg img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 18s ease-out}
+    .hero.loaded .hero-bg img{transform:scale(1)}
+    .hero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.35) 40%,rgba(0,0,0,.75) 100%)}
+    .hero-inner{position:relative;z-index:2;width:100%;padding-top:120px}
+    .hero-eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:.75rem;letter-spacing:.32em;text-transform:uppercase;color:var(--champagne);margin-bottom:28px;opacity:0;transform:translateY(20px);transition:all .8s ease .2s}
+    .hero.loaded .hero-eyebrow{opacity:1;transform:translateY(0)}
+    .hero h1{font-size:clamp(2.6rem,7.4vw,6.2rem);line-height:1.02;color:#fff;font-weight:400;max-width:18ch;opacity:0;transform:translateY(40px);transition:all 1s ease .35s}
+    .hero h1 em{font-style:italic;color:var(--champagne)}
+    .hero.loaded h1{opacity:1;transform:translateY(0)}
+    .hero-sub{margin-top:24px;max-width:520px;font-size:clamp(1rem,1.15vw,1.1rem);color:rgba(255,255,255,.85);opacity:0;transform:translateY(20px);transition:all .9s ease .55s}
+    .hero.loaded .hero-sub{opacity:1;transform:translateY(0)}
+    .hero-ctas{display:flex;gap:16px;margin-top:44px;flex-wrap:wrap;opacity:0;transform:translateY(20px);transition:all .9s ease .75s}
+    .hero.loaded .hero-ctas{opacity:1;transform:translateY(0)}
+    .hero-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:3;color:#fff;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;opacity:.7;display:flex;flex-direction:column;align-items:center;gap:8px}
+    .hero-scroll .bar{width:1px;height:36px;background:#fff;opacity:.6;animation:scrolldot 2.2s ease-in-out infinite}
+    @keyframes scrolldot{0%,100%{transform:scaleY(.4);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}}
+
+    /* ---------- SECTION BASE ---------- */
+    section{padding:120px 0;position:relative}
+    @media (max-width:768px){section{padding:80px 0}}
+    .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:64px;flex-wrap:wrap}
+    .section-head .left{max-width:680px}
+    .section-head h2{font-size:clamp(2rem,4.4vw,3.6rem);margin-top:18px}
+    .section-head p{color:var(--muted);font-size:1.05rem;margin-top:18px;max-width:520px}
+
+    /* ---------- TABS ---------- */
+    .tabs{display:inline-flex;background:var(--cream);border-radius:999px;padding:6px;gap:4px;margin:0 auto 56px;position:relative;border:1px solid var(--line)}
+    .tabs-wrap{display:flex;justify-content:center}
+    .tab{position:relative;padding:12px 26px;font-size:.9rem;border-radius:999px;color:var(--muted);font-weight:500;z-index:1;transition:color .3s ease}
+    .tab[aria-selected="true"]{color:var(--ink)}
+    .tab .pill{position:absolute;inset:0;background:var(--ivory);border-radius:999px;box-shadow:0 2px 8px rgba(14,14,16,.08);transform:scaleX(0);opacity:0;transition:all .4s cubic-bezier(.6,.2,.2,1);z-index:-1}
+    .tab[aria-selected="true"] .pill{transform:scaleX(1);opacity:1}
+
+    /* ---------- PROPERTY SHOWCASE — premium carousel ---------- */
+    .props-wrap{position:relative;margin-top:8px}
+    .props-track{
+      display:flex;gap:32px;
+      overflow-x:auto;overflow-y:visible;
+      scroll-snap-type:x mandatory;
+      scroll-behavior:smooth;
+      -webkit-overflow-scrolling:touch;
+      padding:24px 8px 48px;
+      scrollbar-width:none;
+      user-select:none;
+      -webkit-user-select:none;
+      cursor:grab;
+    }
+    .props-track *{user-select:none;-webkit-user-select:none}
+    .props-track img{-webkit-user-drag:none;user-drag:none}
+    .props-track::-webkit-scrollbar{display:none}
+    .props-track.is-dragging{cursor:grabbing;scroll-snap-type:none;scroll-behavior:auto}
+    .props-track.is-dragging .prop{pointer-events:none}
+
+    .prop{
+      flex:0 0 auto;
+      /* Desktop: each card takes ~62% of viewport for "big luxury" feel, peek of next */
+      width:clamp(340px, 62vw, 880px);
+      scroll-snap-align:start;
+      background:transparent;border-radius:var(--radius);overflow:hidden;
+      display:flex;flex-direction:column;
+      cursor:pointer;
+      transition:transform .6s cubic-bezier(.2,.6,.2,1), box-shadow .6s ease;
+      box-shadow:none;
+      border:0;
+      opacity:1;transform:none;
+    }
+    .prop-media{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--cream);border-radius:var(--radius)}
+    .prop-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.55) 100%);z-index:1;opacity:.85;transition:opacity .5s ease}
+    .prop-media img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.6,.2,1), filter .6s ease}
+    .prop:hover .prop-media img{transform:scale(1.06)}
+    .prop-tag{position:absolute;top:22px;left:22px;background:rgba(14,14,16,.7);color:#fff;font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;padding:8px 16px;border-radius:999px;backdrop-filter:blur(8px);z-index:2}
+    .prop-overlay{position:absolute;left:28px;right:28px;bottom:24px;color:#fff;z-index:2;display:flex;flex-direction:column;gap:6px}
+    .prop-overlay .prop-title{font-family:var(--serif);font-size:clamp(1.6rem,2.6vw,2.4rem);font-weight:500;color:#fff;line-height:1.05;text-shadow:0 2px 18px rgba(0,0,0,.35)}
+    .prop-overlay .prop-loc{font-size:.85rem;color:rgba(255,255,255,.85);display:inline-flex;align-items:center;gap:6px}
+    .prop-overlay .prop-loc svg{width:14px;height:14px}
+    .prop-body{padding:22px 8px 8px;display:flex;flex-direction:column;gap:18px}
+    .prop-body .prop-price{font-family:var(--serif);font-size:1.35rem;color:var(--ink);font-weight:500;letter-spacing:-.01em}
+    .prop-body .prop-specs{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:.78rem;color:var(--muted);padding:0;border:0;letter-spacing:.04em;text-transform:uppercase}
+    .prop-body .prop-specs span{display:inline-flex;align-items:center;gap:6px}
+    .prop-body .prop-specs svg{width:13px;height:13px;opacity:.6}
+    .prop-body .prop-cta{align-self:flex-start;margin-top:6px;padding:11px 22px;font-size:.82rem;letter-spacing:.04em}
+
+    .prop:hover{box-shadow:0 20px 60px rgba(14,14,16,.18)}
+    .prop:hover .prop-media::after{opacity:.7}
+
+    /* Carousel arrows */
+    .car-nav{position:absolute;top:42%;transform:translateY(-50%);width:56px;height:56px;border-radius:999px;background:var(--ivory);color:var(--ink);display:inline-flex;align-items:center;justify-content:center;z-index:5;box-shadow:0 6px 24px rgba(14,14,16,.18);transition:transform .25s ease, background .25s ease, opacity .25s ease;border:1px solid var(--line)}
+    .car-nav:hover{background:var(--ink);color:#fff;transform:translateY(-50%) scale(1.06)}
+    .car-nav:disabled{opacity:.35;cursor:not-allowed}
+    .car-nav.prev{left:-28px}
+    .car-nav.next{right:-28px}
+    .car-nav svg{width:18px;height:18px}
+    @media (max-width:880px){.car-nav{width:44px;height:44px;top:36%}.car-nav.prev{left:-12px}.car-nav.next{right:-12px}}
+
+    /* Counter + progress dots */
+    .car-meta{display:flex;justify-content:space-between;align-items:center;margin-top:-24px;padding:0 8px;gap:24px;flex-wrap:wrap}
+    .car-counter{font-family:var(--serif);font-size:1rem;color:var(--muted);letter-spacing:.04em}
+    .car-counter strong{color:var(--ink);font-weight:500}
+    .car-dots{display:flex;gap:8px}
+    .car-dots button{width:24px;height:2px;background:var(--line);border-radius:2px;transition:background .25s ease, width .25s ease;padding:0}
+    .car-dots button.active{background:var(--champagne);width:48px}
+
+    /* Hide native focus rings only when not keyboard */
+    .car-nav:focus-visible{outline:2px solid var(--champagne);outline-offset:4px}
+
+    @media (max-width:640px){
+      .prop{width:88vw}
+      .prop-media{aspect-ratio:4/5}
+      .prop-overlay{left:20px;right:20px;bottom:18px}
+      .prop-body{padding:18px 4px 0}
+    }
+
+    /* ---------- STATS / SOCIAL PROOF ---------- */
+    .stats{background:var(--ink);color:#fff;padding:120px 0;overflow:hidden;position:relative}
+    .stats::before{content:"";position:absolute;inset:0;background:radial-gradient(800px 400px at 80% 0%,rgba(200,168,106,.15),transparent 60%)}
+    .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;z-index:1}
+    .stat{padding:0 32px;border-left:1px solid rgba(255,255,255,.12)}
+    .stat:first-child{border-left:0}
+    .stat .num{font-family:var(--serif);font-size:clamp(2.6rem,5vw,4.4rem);line-height:1;color:var(--champagne);font-weight:500}
+    .stat .label{margin-top:14px;font-size:.85rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+    @media (max-width:880px){.stats-grid{grid-template-columns:repeat(2,1fr);gap:48px 0}.stat:nth-child(3){border-left:0}.stat{padding:0 24px}}
+
+    .testimonials{margin-top:96px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;position:relative;z-index:1}
+    @media (max-width:980px){.testimonials{grid-template-columns:1fr}}
+    .t-card{background:var(--graphite);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:36px;display:flex;flex-direction:column;gap:22px}
+    .t-stars{display:inline-flex;gap:2px;color:var(--champagne)}
+    .t-stars svg{width:16px;height:16px}
+    .t-quote{font-family:var(--serif);font-size:1.25rem;line-height:1.5;color:rgba(255,255,255,.92);font-style:italic}
+    .t-meta{display:flex;align-items:center;gap:14px;margin-top:auto}
+    .t-avatar{width:48px;height:48px;border-radius:999px;object-fit:cover;background:var(--cream)}
+    .t-name{font-weight:600;color:#fff;font-size:.95rem}
+    .t-role{font-size:.8rem;color:rgba(255,255,255,.55)}
+
+    /* ---------- ABOUT ---------- */
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+    @media (max-width:960px){.about-grid{grid-template-columns:1fr;gap:48px}}
+.about-photo{position:relative;border-radius:24px;overflow:hidden;box-shadow:var(--shadow-2);aspect-ratio:3/4;background:#0A0A0A}
+.about-photo img{width:100%;height:100%;object-fit:cover}
+.about-photo::after{content:"";position:absolute;left:-18px;bottom:-18px;width:120px;height:120px;border:1px solid var(--champagne);border-radius:var(--radius);z-index:-1}
+
+/* ---------- Border Beam (CSS puro) — aplicado individualmente nos cards ABOUT ---------- */
+/* ==========================================================================
+   EFEITO BORDER BEAM PREMIUM (SOBRE MIM)
+   ========================================================================== */
+
+/* 1. CONFIGURAÇÃO DOS CARDS PAI */
+.about-photo,
+.about-body {
+  position: relative !important;
+  overflow: hidden !important; /* Corta rigidamente o gradiente nas quinas */
+  background: #0A0A0A !important;
+  z-index: 1;
+  border-radius: 24px !important; 
+  box-sizing: border-box;
+}
+
+/* Espaçamento interno para o bloco de texto não colar na borda iluminada */
+.about-body {
+  padding: 40px; 
+}
+
+/* 2. O FEIXE DE LUZ (Gira em segundo plano) */
+.about-photo::before,
+.about-body::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(200, 168, 106, 0.95) 30deg,
+    rgba(255, 216, 140, 0.95) 60deg,
+    rgba(200, 168, 106, 0.95) 90deg,
+    transparent 120deg,
+    transparent 360deg
+  );
+  animation: rotate-beam 6s linear infinite !important;
+  z-index: -2; /* Fica na camada mais profunda */
+  transform-origin: center;
+}
+
+/* 3. A TAMPA PRETA (Deixa apenas 1px de borda aparente) */
+.about-photo::after,
+.about-body::after {
+  content: "";
+  position: absolute;
+  inset: 1px; /* Espessura exata da borda */
+  background: #0A0A0A !important; 
+  border-radius: 23px !important; /* Ajuste sutil para casar com o contorno externo */
+  z-index: -1; /* Fica na frente do gradiente, mas atrás do conteúdo */
+  pointer-events: none;
+}
+
+/* 4. GARANTE QUE O CONTEÚDO FIQUE ACIMA DO EFEITO */
+.about-photo > *,
+.about-body > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* 5. ESTILIZAÇÃO DO TEXTO E GRID INTERNO (.about-body) */
+.about-body h2 {
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  margin: 18px 0 28px;
+}
+
+.about-body p {
+  color: var(--muted);
+  font-size: 1.05rem;
+  margin-bottom: 20px;
+  max-width: 560px;
+}
+
+.about-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px 40px;
+  margin: 36px 0;
+}
+
+.about-list h4 {
+  font-family: var(--sans);
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.about-list p {
+  font-size: .9rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* 6. ANIMAÇÃO DE ROTAÇÃO DA LUZ */
+@keyframes rotate-beam {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.about-body{position:relative;border-radius:24px;background:#0A0A0A;overflow:hidden;}
+
+.about-body > *{position:relative;z-index:2}
+
+.about-body h2{font-size:clamp(2rem,4vw,3.4rem);margin:18px 0 28px}
+.about-body p{color:var(--muted);font-size:1.05rem;margin-bottom:20px;max-width:560px}
+.about-list{display:grid;grid-template-columns:repeat(2,1fr);gap:24px 40px;margin:36px 0}
+.about-list h4{font-family:var(--sans);font-size:.95rem;font-weight:600;color:var(--ink);margin-bottom:6px}
+.about-list p{font-size:.9rem;color:var(--muted);margin:0}
+
+    /* ---------- FAQ ---------- */
+    .faq{background:var(--cream);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .faq-list{max-width:880px;margin:0 auto;display:flex;flex-direction:column;gap:0}
+    .faq-item{border-bottom:1px solid var(--line)}
+    .faq-item:first-child{border-top:1px solid var(--line)}
+    .faq-trigger{width:100%;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:28px 0;text-align:left;font-family:var(--serif);font-size:clamp(1.1rem,1.5vw,1.4rem);color:var(--ink);transition:color .2s ease}
+    .faq-trigger:hover{color:var(--champagne)}
+    .faq-trigger .icon{width:28px;height:28px;border-radius:999px;border:1px solid var(--line);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s ease}
+    .faq-trigger[aria-expanded="true"]{color:var(--ink)}
+    .faq-trigger[aria-expanded="true"] .icon{background:var(--ink);color:#fff;border-color:var(--ink);transform:rotate(45deg)}
+    .faq-panel{max-height:0;overflow:hidden;transition:max-height .5s ease, opacity .35s ease;opacity:0}
+    .faq-panel.open{max-height:400px;opacity:1}
+    .faq-panel-inner{padding:0 0 28px;color:var(--muted);max-width:680px;font-size:1rem}
+
+    /* ---------- FINAL CTA ---------- */
+    .final-cta{position:relative;padding:160px 0;color:#fff;overflow:hidden}
+    .final-cta-bg{position:absolute;inset:0;z-index:0}
+    .final-cta-bg img{width:100%;height:100%;object-fit:cover}
+    .final-cta::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,14,16,.65),rgba(14,14,16,.85));z-index:1}
+    .final-cta-inner{position:relative;z-index:2;text-align:center;max-width:760px;margin:0 auto}
+    .final-cta h2{color:#fff;font-size:clamp(2.2rem,5vw,4rem);margin-bottom:24px}
+    .final-cta p{color:rgba(255,255,255,.78);font-size:1.1rem;margin-bottom:40px}
+
+    /* ---------- FOOTER ---------- */
+    footer{background:var(--graphite);color:#fff;padding:80px 0 32px}
+    .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:56px;border-bottom:1px solid rgba(255,255,255,.1)}
+    @media (max-width:880px){.foot-grid{grid-template-columns:1fr 1fr}}
+    @media (max-width:560px){.foot-grid{grid-template-columns:1fr}}
+    .foot-brand{font-family:var(--serif);font-size:1.8rem;margin-bottom:14px}
+    .foot-brand .dot{display:inline-block;width:7px;height:7px;border-radius:999px;background:var(--champagne);transform:translateY(-3px);margin-left:8px}
+    .foot p.foot-tag{color:rgba(255,255,255,.6);max-width:340px;font-size:.95rem}
+    .foot-col h5{font-family:var(--sans);font-size:.78rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--champagne);margin:0 0 18px}
+    .foot-col ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px;font-size:.92rem;color:rgba(255,255,255,.78)}
+    .foot-col a:hover{color:var(--champagne)}
+    .foot-social{display:flex;gap:12px;margin-top:20px}
+    .foot-social a{width:40px;height:40px;border-radius:999px;border:1px solid rgba(255,255,255,.18);display:inline-flex;align-items:center;justify-content:center;transition:all .25s ease}
+    .foot-social a:hover{background:var(--champagne);color:var(--ink);border-color:var(--champagne);transform:translateY(-2px)}
+    .foot-social svg{width:16px;height:16px}
+    .foot-bottom{margin-top:32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:.85rem;color:rgba(255,255,255,.5)}
+
+    /* ---------- FLOATING WHATSAPP ---------- */
+    .float-wa{position:fixed;right:24px;bottom:24px;z-index:90;width:60px;height:60px;border-radius:999px;background:#25D366;color:#fff;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(37,211,102,.45);animation:bob 3s ease-in-out infinite;transition:transform .25s ease}
+    .float-wa:hover{transform:scale(1.06)}
+    .float-wa svg{width:30px;height:30px}
+    .float-wa::after{content:"";position:absolute;inset:-6px;border-radius:999px;border:2px solid rgba(37,211,102,.35);animation:pulse 2s ease-out infinite}
+    @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+    @keyframes pulse{0%{transform:scale(.95);opacity:.7}100%{transform:scale(1.4);opacity:0}}
+    @media (min-width:880px){.float-wa{width:64px;height:64px}}
+
+    /* ---------- LIGHTBOX ---------- */
+    .lb{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:32px;background:rgba(14,14,16,.85);backdrop-filter:blur(8px);opacity:0;transition:opacity .3s ease}
+    .lb.open{display:flex;opacity:1}
+    .lb-card{background:var(--ivory);border-radius:20px;max-width:1100px;width:100%;max-height:90vh;display:grid;grid-template-columns:1.2fr 1fr;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5);transform:translateY(20px) scale(.98);transition:transform .35s ease}
+    .lb.open .lb-card{transform:translateY(0) scale(1)}
+    @media (max-width:880px){.lb-card{grid-template-columns:1fr;max-height:92vh;overflow-y:auto}.lb-gallery{aspect-ratio:16/10}}
+    .lb-gallery{position:relative;background:var(--ink);overflow:hidden}
+    .lb-gallery img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s ease}
+    .lb-gallery img.active{opacity:1}
+    .lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:999px;background:rgba(255,255,255,.85);color:var(--ink);display:inline-flex;align-items:center;justify-content:center;font-size:1.4rem;z-index:2;transition:all .2s}
+    .lb-nav:hover{background:#fff}
+    .lb-nav.prev{left:14px}
+    .lb-nav.next{right:14px}
+    .lb-thumbs{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:2}
+    .lb-thumbs button{width:34px;height:6px;border-radius:3px;background:rgba(255,255,255,.45);transition:background .2s}
+    .lb-thumbs button.active{background:var(--champagne)}
+    .lb-body{padding:40px;display:flex;flex-direction:column;gap:18px;overflow-y:auto}
+    .lb-body h3{font-family:var(--serif);font-size:1.8rem;text-transform:none;letter-spacing:0;font-weight:500;color:var(--ink)}
+    .lb-loc{font-size:.9rem;color:var(--muted)}
+    .lb-price{font-family:var(--serif);font-size:2rem;color:var(--champagne);font-weight:500}
+    .lb-desc{color:var(--muted);font-size:.95rem;line-height:1.6}
+    .lb-specs{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 24px;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .lb-specs div{display:flex;justify-content:space-between;font-size:.9rem;color:var(--ink)}
+    .lb-specs div span:last-child{color:var(--muted)}
+    .lb-cta{margin-top:auto;display:flex;gap:10px}
+    .lb-cta .btn{flex:1}
+    .lb-close{position:absolute;top:20px;right:20px;width:42px;height:42px;border-radius:999px;background:rgba(255,255,255,.92);color:var(--ink);display:inline-flex;align-items:center;justify-content:center;z-index:110;box-shadow:0 4px 12px rgba(0,0,0,.2)}
+    .lb-close:hover{background:#fff;transform:scale(1.05)}
+
+    /* ---------- LOADING ---------- */
+    .loader{position:fixed;inset:0;z-index:200;background:var(--ivory);display:flex;align-items:center;justify-content:center;transition:opacity .6s ease}
+    .loader.hide{opacity:0;pointer-events:none}
+    .loader-mark{width:48px;height:48px;border:2px solid var(--line);border-top-color:var(--champagne);border-radius:999px;animation:spin 1s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    /* ---------- REVEAL ---------- */
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease, transform .9s ease}
+    .reveal.in{opacity:1;transform:translateY(0)}
+
+    /* ---------- REDUCED MOTION ---------- */
+    @media (prefers-reduced-motion: reduce){
+      *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ LOADER ============ -->
+  <div class="loader" id="loader" aria-hidden="true"><div class="loader-mark"></div></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav" role="banner" style="position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: rgba(10, 10, 10, 0.75); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(39, 39, 42, 0.5); transition: all 0.3s ease;">
+    <div class="container nav-row" style="display: flex; justify-content: space-between; align-items: center; padding: 14px 0;">
+      <a href="#top" class="brand" aria-label="Gleiciany Alves — Imóveis de Alto Padrão" style="color: var(--ink); text-decoration: none; font-family: var(--serif); font-size: 1.3rem; font-weight: 500;">
+        Gleiciany Alves <span class="dot" aria-hidden="true" style="background: var(--champagne); display: inline-block; width: 6px; height: 6px; border-radius: 50%; margin-left: 4px;"></span>
+      </a>
+      <nav class="nav-links" aria-label="Principal" style="display: flex; gap: 24px;">
+        <style>
+          .nav-links a { color: var(--ink); text-decoration: none; font-family: var(--sans); font-size: 0.95rem; opacity: 0.8; transition: all 0.2s ease; }
+          .nav-links a:hover { color: var(--champagne); opacity: 1; }
+        </style>
+        <a href="#imoveis">Imóveis</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a href="#final-cta" class="btn btn-primary nav-cta" style="background: transparent; color: var(--champagne); border: 1px solid var(--champagne); padding: 10px 22px; border-radius: 100px; font-family: var(--sans); font-size: 0.88rem; font-weight: 500; text-decoration: none; transition: all 0.3s ease;">
+  <style>
+    .nav-cta:hover { background: var(--champagne) !important; color: #0A0A0A !important; }
+  </style>
+  Agendar Atendimento
+</a>
+
+    </div>
+  </header>
+
+  <!-- ============ 1. HERO ============ -->
+ <section class="hero" id="top" aria-label="Hero">
+    <div class="hero-bg" aria-hidden="true">
+      <img src="./imgs/hero.jpg" alt="" loading="eager" onerror="this.style.display='none'" />
+    </div>
+    <div class="container hero-inner">
+      <div class="hero-eyebrow"><span class="hairline"></span> Atendimento personalizado</div>
+      <h1>Encontre o imóvel <em>exclusivo</em><br/>que você merece.</h1>
+      <p class="hero-sub">Curadoria de imóveis de alto padrão para clientes que exigem o melhor. Atendimento exclusivo, sigiloso e sob medida.</p>
+      
+      <!-- ===== AQUI ESTÁ A MUDANÇA: APENAS NAS CTAs ===== -->
+      <div class="hero-ctas" style="display: flex; gap: 16px; align-items: center; margin-top: 32px;">
+        
+        <!-- BOTÃO 1: AGENDAR ATENDIMENTO (PRINCIPAL DOURADO) -->
+        <a href="https://wa.me/5500000000000?text=Olá%20Gleiciany,%20gostaria%20de%20agendar%20um%20atendimento" class="btn btn-primary" target="_blank" rel="noopener" style="background: var(--champagne); color: #0A0A0A; border: 1px solid var(--champagne); padding: 14px 28px; border-radius: 100px; font-family: var(--sans); font-size: 0.95rem; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s ease;">
+          <style>
+            .btn-primary:hover { background: transparent !important; color: var(--champagne) !important; }
+          </style>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="width: 18px; height: 18px;"><path d="M8 2v4M16 2v4M3 10h18M5 6h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/></svg>
+          Agendar Atendimento
+        </a>
+
+        <!-- BOTÃO 2: VER IMÓVEIS (SECUNDÁRIO VAZADO ELEGANTE) -->
+        <a href="#imoveis" class="btn btn-ghost on-dark" style="background: transparent; color: var(--ink); border: 1px solid rgba(255, 255, 255, 0.2); padding: 14px 28px; border-radius: 100px; font-family: var(--sans); font-size: 0.95rem; font-weight: 500; text-decoration: none; transition: all 0.3s ease;">
+          <style>
+            .btn-ghost:hover { border-color: var(--ink) !important; background: rgba(255, 255, 255, 0.05) !important; }
+          </style>
+          Ver Imóveis
+        </a>
+
+      </div>
+      <!-- ============================================== -->
+
+    </div>
+    <a href="#imoveis" class="hero-scroll" aria-label="Rolar para imóveis">
+      Scroll
+      <span class="bar" aria-hidden="true"></span>
+    </a>
+  </section>
+
+  <!-- ============ 2 & 3. PROPERTY FILTER + SHOWCASE ============ -->
+  <section id="imoveis" aria-label="Imóveis disponíveis">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="left">
+          <span class="eyebrow"><span class="hairline"></span> Portfólio exclusivo</span>
+          <h2>Uma seleção curada de imóveis únicos.</h2>
+        </div>
+        <p>Cada imóvel passa por uma curadoria criteriosa, com avaliação de localização, arquitetura, acabamento e potencial de valorização.</p>
+      </div>
+
+      <div class="tabs-wrap reveal">
+        <div class="tabs" role="tablist" aria-label="Categorias de imóveis">
+          <button class="tab" role="tab" aria-selected="true" data-filter="todos"><span class="pill"></span>Todos</button>
+          <button class="tab" role="tab" aria-selected="false" data-filter="casa"><span class="pill"></span>Casas</button>
+          <button class="tab" role="tab" aria-selected="false" data-filter="apartamento"><span class="pill"></span>Apartamentos</button>
+        </div>
+      </div>
+
+      <div class="props-wrap reveal" id="propsWrap">
+        <button class="car-nav prev" id="carPrev" aria-label="Imóvel anterior">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <div class="props-track" id="propsTrack" aria-live="polite" tabindex="0" aria-label="Carrossel de imóveis"></div>
+        <button class="car-nav next" id="carNext" aria-label="Próximo imóvel">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+
+        <div class="car-meta">
+          <div class="car-counter"><strong id="carCurrent">01</strong> <span style="opacity:.5">/</span> <span id="carTotal">00</span></div>
+          <div class="car-dots" id="carDots" role="tablist" aria-label="Navegação direta"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4. SOCIAL PROOF ============ -->
+ <section class="stats" id="depoimentos" aria-label="Resultados e depoimentos" style="background: var(--ivory); padding: 80px 0;">
+    <div class="container">
+      <div class="section-head reveal" style="color:#fff">
+        <div class="left">
+          <span class="eyebrow"><span class="hairline"></span> Resultados que falam</span>
+          <h2 style="color:#fff">Confiança construída,<br/>um imóvel por vez.</h2>
+        </div>
+        <p style="color:rgba(255,255,255,.7)">Números reais de uma carreira dedicada à excelência no atendimento de alto padrão.</p>
+      </div>
+
+      <div class="stats-grid reveal">
+        <div class="stat"><div class="num" data-count="320">0</div><div class="label">Imóveis vendidos</div></div>
+        <div class="stat"><div class="num" data-count="12">0</div><div class="label">Anos de experiência</div></div>
+        <div class="stat"><div class="num" data-count="98">0</div><div class="label">Satisfação dos clientes (%)</div></div>
+        <div class="stat"><div class="num" data-count="45">0</div><div class="label">Bairros atendidos</div></div>
+      </div>
+
+      <div class="testimonials">
+        <!-- CARD 1 -->
+        <article class="t-card reveal" style="background: var(--cream); border: 1px solid var(--line); color: var(--ink);">
+          <div class="t-stars" aria-label="Avaliação 5 de 5">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77 5.82 21l1.18-6.88L2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77 5.82 21l1.18-6.88L2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77 5.82 21l1.18-6.88L2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77 5.82 21l1.18-6.88L2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77 5.82 21l1.18-6.88L2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="t-quote">“Gleiciany entendeu exatamente o que eu buscava. Em menos de 60 dias estávamos assinando o contrato do apartamento dos sonhos.”</p>
+          <div class="t-meta">
+            <img src="./imgs/testimonial1.jpg" alt="" class="t-avatar" loading="lazy" onerror="this.style.display='none'" />
+            <div><div class="t-name">Ricardo Almeida</div><div class="t-role" style="color: var(--muted);">Empresário · São Paulo</div></div>
+          </div>
+        </article>
+
+        <!-- CARD 2 -->
+        <article class="t-card reveal" style="background: var(--cream); border: 1px solid var(--line); color: var(--ink);">
+          <div class="t-stars" aria-label="Avaliação 5 de 5">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77 5.82 21l1.18-6.88L2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77 5.82 21l1.18-6.88L2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77 5.82 21l1.18-6.88L2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77 5.82 21l1.18-6.88L2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77 5.82 21l1.18-6.88L2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="t-quote">“Atendimento impecável do início ao fim. A curadoria de imóveis que ela apresenta é outro nível — só aparece o que realmente vale.”</p>
+          <div class="t-meta">
+            <img src="./imgs/testimonial2.jpg" alt="" class="t-avatar" loading="lazy" onerror="this.style.display='none'" />
+            <div><div class="t-name">Luciana Mendes</div><div class="t-role" style="color: var(--muted);">CEO · Rio de Janeiro</div></div>
+          </div>
+        </article>
+
+        <!-- CARD 3 -->
+        <article class="t-card reveal" style="background: var(--cream); border: 1px solid var(--line); color: var(--ink);">
+          <div class="t-stars" aria-label="Avaliação 5 de 5">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77 5.82 21l1.18-6.88L2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77 5.82 21l1.18-6.88L2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77 5.82 21l1.18-6.88L2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77 5.82 21l1.18-6.88L2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77 5.82 21l1.18-6.88L2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="t-quote">“Vendi meu imóvel em tempo recorde e comprei o próximo com a tranquilidade que só uma profissional como ela oferece.”</p>
+          <div class="t-meta">
+            <img src="./imgs/testimonial3.jpg" alt="" class="t-avatar" loading="lazy" onerror="this.style.display='none'" />
+            <div><div class="t-name">Marcos Tavares</div><div class="t-role">Investidor · Belo Horizonte</div></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5. ABOUT GLEICE ============ -->
+  <section id="sobre" aria-label="Sobre Gleiciany Alves">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-photo reveal">
+          <img src="./imgs/portrait.jpg" alt="Retrato profissional de Gleiciany Alves" loading="lazy" onerror="this.style.display='none'" />
+        </div>
+        <div class="about-body reveal">
+          <span class="eyebrow"><span class="hairline"></span> Sobre mim</span>
+          <h2>Gleiciany Alves.<br/>Atendimento que se sente,<br/>resultados que ficam.</h2>
+          <p>Há mais de uma década atuando exclusivamente com imóveis de alto padrão, construí minha carreira sobre um princípio simples: cada cliente é único, e cada imóvel precisa contar uma história à altura.</p>
+          <p>Trabalho com uma curadoria criteriosa, um network exclusivo e total sigilo — porque grandes decisões exigem confiança e discrição.</p>
+
+          <div class="about-list">
+            <div><h4>+12 anos</h4><p>Atuação dedicada ao mercado premium.</p></div>
+            <div><h4>Especialista</h4><p>Em bairros nobres e empreendimentos exclusivos.</p></div>
+            <div><h4>Curadoria</h4><p>Seleção personalizada para cada perfil de cliente.</p></div>
+            <div><h4>Compromisso</h4><p>Acompanhamento próximo do início ao fim.</p></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6. FAQ ============ -->
+  <section class="faq" id="faq" aria-label="Perguntas frequentes">
+    <div class="container">
+      <div class="section-head reveal" style="text-align:center;flex-direction:column;align-items:center">
+        <span class="eyebrow"><span class="hairline"></span> Perguntas frequentes</span>
+        <h2>Tire suas dúvidas.</h2>
+        <p>As respostas para as perguntas mais comuns de quem busca um imóvel de alto padrão.</p>
+      </div>
+
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false" aria-controls="a1">
+            <span>Como agendar uma visita?</span>
+            <span class="icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-panel" id="a1" role="region">
+            <div class="faq-panel-inner">Você pode agendar diretamente pelo botão de WhatsApp disponível em cada imóvel ou na seção de contato. Em até 24h retorno com opções de horário e preparei uma visita exclusiva para você.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false" aria-controls="a2">
+            <span>Posso financiar o imóvel?</span>
+            <span class="icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-panel" id="a2" role="region">
+            <div class="faq-panel-inner">Sim. Trabalho com os principais bancos do país e com correspondentes bancários exclusivos, garantindo as melhores taxas e condições para imóveis de alto padrão. Avalio todo o processo para você.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false" aria-controls="a3">
+            <span>Vocês trabalham com imóveis exclusivos?</span>
+            <span class="icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-panel" id="a3" role="region">
+            <div class="faq-panel-inner">Sim. Uma parte significativa do meu portfólio é composta por imóveis off-market — propriedades não anunciadas publicamente. Esses imóveis são apresentados a clientes qualificados mediante cadastro.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false" aria-controls="a4">
+            <span>Como funciona a avaliação de imóveis?</span>
+            <span class="icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-panel" id="a4" role="region">
+            <div class="faq-panel-inner">A avaliação considera localização, metragem, estado de conservação, padrão de acabamento, comparativos de mercado recentes e potencial de valorização. Você recebe um laudo completo com a estratégia de preço ideal.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false" aria-controls="a5">
+            <span>Qual o prazo médio para compra?</span>
+            <span class="icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-panel" id="a5" role="region">
+            <div class="faq-panel-inner">Para imóveis à vista, o processo pode ser concluído em 30 a 45 dias. Com financiamento, o prazo médio é de 60 a 90 dias, considerando análise bancária e escritura. Acompanho cada etapa pessoalmente.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 7. FINAL CTA ============ -->
+  <section class="final-cta" id="final-cta" aria-label="Conversão final">
+    <div class="final-cta-bg" aria-hidden="true">
+      <img src="./imgs/final_cta_bg.jpg" alt="" loading="lazy" onerror="this.style.display='none'" />
+    </div>
+    <div class="container final-cta-inner reveal">
+      <span class="eyebrow" style="color:var(--champagne)"><span class="hairline"></span> Próximo passo</span>
+      <h2>Vamos encontrar o imóvel<br/>ideal para você.</h2>
+      <p>Converse com a Gleiciany pelo WhatsApp e receba uma curadoria exclusiva, sob medida para o que você procura.</p>
+      <a href="https://wa.me/5500000000000?text=Olá%20Gleiciany,%20quero%20conhecer%20imóveis%20exclusivos" class="btn btn-whatsapp" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.7-1.4-1.6-1.6-1.9-.2-.3 0-.4.1-.5.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 0C5.4 0 0 5.4 0 12c0 2.1.6 4.1 1.6 5.8L0 24l6.4-1.6c1.7.9 3.6 1.4 5.6 1.4 6.6 0 12-5.4 12-12S18.6 0 12 0zm0 22c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.8 1 1-3.7-.2-.4C2.6 15.5 2 13.8 2 12 2 6.5 6.5 2 12 2s10 4.5 10 10-4.5 10-10 10z"/></svg>
+        Conversar pelo WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ 8. FOOTER ============ -->
+ <footer class="foot" role="contentinfo" style="background: var(--ivory); color: var(--ink); padding: 60px 0; border-top: 1px solid var(--line);">
+    <div class="container">
+      <div class="foot-grid">
+        <div>
+          <div class="foot-brand" style="color: var(--ink); font-family: var(--serif); font-size: 1.5rem; margin-bottom: 16px;">Gleiciany Alves <span class="dot" style="background: var(--champagne); display: inline-block; width: 6px; height: 6px; border-radius: 50%; margin-left: 4px;"></span></div>
+          <p class="foot-tag" style="color: var(--muted); max-w: 320px; font-size: 0.9rem; line-height: 1.6; margin-bottom: 24px;">Curadoria e venda de imóveis de alto padrão. Atendimento personalizado, exclusivo e sigiloso.</p>
+          
+          <!-- Redes Sociais com transição suave no Dark Mode -->
+          <div class="foot-social" aria-label="Redes sociais" style="display: flex; gap: 16px; align-items: center;">
+            <style>
+              .foot-social a { color: var(--muted); transition: color 0.3s ease; }
+              .foot-social a:hover { color: var(--champagne); }
+              .foot-social svg { width: 20px; height: 20px; }
+            </style>
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg></a>
+            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 3H3.6C3.3 3 3 3.3 3 3.6v16.8c0 .3.3.6.6.6h16.8c.3 0 .6-.3.6-.6V3.6c0-.3-.3-.6-.6-.6zM8.3 18.3H5.6V9.7h2.7v8.6zm-1.4-9.8c-.9 0-1.6-.7-1.6-1.6s.7-1.6 1.6-1.6 1.6.7 1.6 1.6-.7 1.6-1.6 1.6zm11.4 9.8h-2.7v-4.2c0-1 0-2.3-1.4-2.3s-1.6 1.1-1.6 2.2v4.3h-2.7V9.7h2.6v1.2c.4-.7 1.3-1.4 2.6-1.4 2.7 0 3.3 1.8 3.3 4.1v4.7z"/></svg></a>
+            <a href="https://wa.me/5500000000000" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.7-1.4-1.6-1.6-1.9-.2-.3 0-.4.1-.5.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 0C5.4 0 0 5.4 0 12c0 2.1.6 4.1 1.6 5.8L0 24l6.4-1.6c1.7.9 3.6 1.4 5.6 1.4 6.6 0 12-5.4 12-12S18.6 0 12 0z"/></svg></a>
+          </div>
+        </div>
+        <div class="foot-col">
+          <h5>Navegação</h5>
+          <ul>
+            <li><a href="#imoveis">Imóveis</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#depoimentos">Depoimentos</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h5>Contato</h5>
+          <ul>
+            <li><a href="https://wa.me/5500000000000">+55 (00) 0 0000-0000</a></li>
+            <li><a href="mailto:contato@gleicianyalves.com.br">contato@gleicianyalves.com.br</a></li>
+            <li>São Paulo · Brasil</li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h5>Atendimento</h5>
+          <ul>
+            <li>Seg–Sex · 9h às 19h</li>
+            <li>Sáb · 9h às 14h</li>
+            <li>Visitas com agendamento</li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <div>© <span id="year"></span> Gleiciany Alves · Imóveis de Alto Padrão. Todos os direitos reservados.</div>
+        <div>CRECI: 00000-F</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ FLOATING WHATSAPP ============ -->
+  <a class="float-wa" href="https://wa.me/5500000000000?text=Olá%20Gleiciany!" target="_blank" rel="noopener" aria-label="Conversar pelo WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.7-1.4-1.6-1.6-1.9-.2-.3 0-.4.1-.5.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 0C5.4 0 0 5.4 0 12c0 2.1.6 4.1 1.6 5.8L0 24l6.4-1.6c1.7.9 3.6 1.4 5.6 1.4 6.6 0 12-5.4 12-12S18.6 0 12 0zm0 22c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.8 1 1-3.7-.2-.4C2.6 15.5 2 13.8 2 12 2 6.5 6.5 2 12 2s10 4.5 10 10-4.5 10-10 10z"/></svg>
+  </a>
+
+  <!-- ============ LIGHTBOX ============ -->
+  <div class="lb" id="lb" role="dialog" aria-modal="true" aria-labelledby="lbTitle" aria-hidden="true">
+    <button class="lb-close" id="lbClose" aria-label="Fechar">×</button>
+    <div class="lb-card" role="document">
+      <div class="lb-gallery">
+        <button class="lb-nav prev" id="lbPrev" aria-label="Imagem anterior">‹</button>
+        <button class="lb-nav next" id="lbNext" aria-label="Próxima imagem">›</button>
+        <div id="lbImgs"></div>
+        <div class="lb-thumbs" id="lbThumbs"></div>
+      </div>
+      <div class="lb-body">
+        <span class="eyebrow" id="lbType"><span class="hairline"></span> Imóvel</span>
+        <h3 id="lbTitle">—</h3>
+        <div class="lb-loc" id="lbLoc">—</div>
+        <div class="lb-price" id="lbPrice">—</div>
+        <p class="lb-desc" id="lbDesc">—</p>
+        <div class="lb-specs" id="lbSpecs"></div>
+        <div class="lb-cta">
+  <a id="lbWa" href="#" class="btn btn-whatsapp" target="_blank" rel="noopener" style="background: var(--champagne) !important; color: #0A0A0A !important; border: 1px solid var(--champagne) !important; padding: 12px 24px; border-radius: 100px; font-family: var(--sans); font-size: 0.9rem; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s ease;">
+  <style>
+    #lbWa:hover { background: transparent !important; color: var(--champagne) !important; border-color: var(--champagne) !important; }
+  </style>
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width: 18px; height: 18px;"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.7-1.4-1.6-1.6-1.9-.2-.3 0-.4.1-.5.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 0C5.4 0 0 5.4 0 12c0 2.1.6 4.1 1.6 5.8L0 24l6.4-1.6c1.7.9 3.6 1.4 5.6 1.4 6.6 0 12-5.4 12-12S18.6 0 12 0z"/></svg>
+  Tenho Interesse
+</a>
+          <button class="btn btn-ghost" onclick="document.getElementById('lbClose').click()">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SCRIPT ============ -->
+  <script>
+    'use strict';
+
+    /* =====================================================
+       DATA — single source of truth for all property cards
+       Replace images / titles later without touching the UI.
+    ===================================================== */
+    const properties = [
+      { id:1, type:'casa', title:'Villa Aurora', neighborhood:'Jardim Europa', price:'R$ 12.800.000', area:780, bedrooms:5, bathrooms:6, parkingSpaces:4,
+        images:['./imgs/p1.jpg','./imgs/p11.jpg','./imgs/p7.jpg'],
+        desc:'Residência contemporânea com amplos vãos, jardim tropical e piscina com borda infinita. Acabamentos em mármore travertino e madeira nobre.' },
+      { id:2, type:'apartamento', title:'Cobertura Horizon', neighborhood:'Itaim Bibi', price:'R$ 9.500.000', area:420, bedrooms:4, bathrooms:5, parkingSpaces:4,
+        images:['./imgs/p2.jpg','./imgs/p5.jpg','./imgs/p6.jpg'],
+        desc:'Cobertura duplex com vista panorâmica, terraço gourmet e piscina privativa. Design assinado por escritório premiado.' },
+      { id:3, type:'casa', title:'Casa do Mar', neighborhood:'Trancoso', price:'R$ 18.200.000', area:920, bedrooms:6, bathrooms:7, parkingSpaces:6,
+        images:['./imgs/p3.jpg','./imgs/p15.jpg','./imgs/p9.jpg'],
+        desc:'Beach house de luxo em condomínio fechado, com acesso privativo à praia, deck em madeira e arquitetura integrada à natureza.' },
+      { id:4, type:'casa', title:'Residencial Belvedere', neighborhood:'Alphaville', price:'R$ 7.400.000', area:650, bedrooms:4, bathrooms:5, parkingSpaces:4,
+        images:['./imgs/p4.jpg','./imgs/p1.jpg','./imgs/p11.jpg'],
+        desc:'Casa contemporânea em condomínio fechado, com living integrado, home theater e Spa com sauna úmida.' },
+      { id:5, type:'apartamento', title:'Apartamento Lumière', neighborhood:'Vila Olímpia', price:'R$ 5.900.000', area:280, bedrooms:3, bathrooms:4, parkingSpaces:3,
+        images:['./imgs/p5.jpg','./imgs/p2.jpg','./imgs/p8.jpg'],
+        desc:'Apartamento de alto padrão com pé-direito duplo, iluminação cenográfica e acabamentos italianos.' },
+      { id:6, type:'apartamento', title:'Maison Gourmet', neighborhood:'Jardins', price:'R$ 6.750.000', area:310, bedrooms:3, bathrooms:4, parkingSpaces:3,
+        images:['./imgs/p6.jpg','./imgs/p2.jpg','./imgs/p12.jpg'],
+        desc:'Apartamento ideal para quem ama receber, com ampla cozinha gourmet, adega climatizada e sala de jantar para 12 pessoas.' },
+      { id:7, type:'casa', title:'Villa Serena', neighborhood:'Cidade Jardim', price:'R$ 11.300.000', area:720, bedrooms:5, bathrooms:6, parkingSpaces:5,
+        images:['./imgs/p7.jpg','./imgs/p1.jpg','./imgs/p9.jpg'],
+        desc:'Arquitetura tropical moderna, ventilação cruzada natural e integração total entre living, jardim e piscina.' },
+      { id:8, type:'apartamento', title:'Duplex Arte', neighborhood:'Higienópolis', price:'R$ 8.200.000', area:360, bedrooms:4, bathrooms:4, parkingSpaces:4,
+        images:['./imgs/p8.jpg','./imgs/p2.jpg','./imgs/p5.jpg'],
+        desc:'Duplex com pé-direito duplo, biblioteca em madeira nobre e vista para o Parque Buenos Aires.' },
+      { id:9, type:'casa', title:'Casa Lumière Noturna', neighborhood:'Juscelino', price:'R$ 14.600.000', area:880, bedrooms:5, bathrooms:7, parkingSpaces:5,
+        images:['./imgs/p9.jpg','./imgs/p4.jpg','./imgs/p3.jpg'],
+        desc:'Projeto noturno iluminado, fachada em pedra natural, paisagismo cênico e automação completa.' },
+      { id:10, type:'apartamento', title:'Rooftop Sky Lounge', neighborhood:'Pinheiros', price:'R$ 4.850.000', area:240, bedrooms:2, bathrooms:3, parkingSpaces:2,
+        images:['./imgs/p10.jpg','./imgs/p2.jpg','./imgs/p12.jpg'],
+        desc:'Cobertura com rooftop exclusivo, lounge externo, fire pit e vista 360° da cidade.' },
+      { id:11, type:'casa', title:'Casa Vidro & Pedra', neighborhood:'Morro Alto', price:'R$ 10.100.000', area:690, bedrooms:4, bathrooms:5, parkingSpaces:4,
+        images:['./imgs/p11.jpg','./imgs/p7.jpg','./imgs/p4.jpg'],
+        desc:'Fachada totalmente em vidro com estrutura em pedra natural, integração total com o jardim.' },
+      { id:12, type:'apartamento', title:'Residencial Chef', neighborhood:'Moema', price:'R$ 5.400.000', area:265, bedrooms:3, bathrooms:3, parkingSpaces:3,
+        images:['./imgs/p12.jpg','./imgs/p6.jpg','./imgs/p10.jpg'],
+        desc:'Apartamento com cozinha gourmet profissional, churrasqueira integrada e adega climatizada.' },
+      { id:13, type:'casa', title:'Casa Atelier', neighborhood:'Pacaembu', price:'R$ 8.900.000', area:540, bedrooms:4, bathrooms:4, parkingSpaces:4,
+        images:['./imgs/p13.jpg','./imgs/p4.jpg','./imgs/p8.jpg'],
+        desc:'Casa com home office para quem trabalha de casa, biblioteca, atelier e jardim de inverno.' },
+      { id:14, type:'apartamento', title:'Loft Industrial', neighborhood:'Vila Madalena', price:'R$ 3.750.000', area:210, bedrooms:2, bathrooms:2, parkingSpaces:2,
+        images:['./imgs/p14.jpg','./imgs/p2.jpg','./imgs/p13.jpg'],
+        desc:'Loft industrial com pé-direito alto, janelas arqueadas, tijoletas originais e design contemporâneo.' },
+      { id:15, type:'casa', title:'Beach House Sunset', neighborhood:'Mariscal', price:'R$ 9.200.000', area:610, bedrooms:4, bathrooms:5, parkingSpaces:4,
+        images:['./imgs/p15.jpg','./imgs/p3.jpg','./imgs/p9.jpg'],
+        desc:'Casa de praia com vista para o mar, deck em madeira, redes e piscina com borda infinita.' }
+    ];
+
+    /* =====================================================
+       RENDER — premium property carousel
+    ===================================================== */
+    const propsTrack = document.getElementById('propsTrack');
+    const carPrev = document.getElementById('carPrev');
+    const carNext = document.getElementById('carNext');
+    const carDots = document.getElementById('carDots');
+    const carCurrent = document.getElementById('carCurrent');
+    const carTotal = document.getElementById('carTotal');
+    let currentIndex = 0;
+    let suppressScrollUpdate = false;
+
+    function formatType(t){
+      return t === 'casa' ? 'Casa' : t === 'apartamento' ? 'Apartamento' : 'Terreno';
+    }
+
+    function renderProperties(filter){
+      const list = properties.filter(p => filter === 'todos' ? true : p.type === filter);
+      propsTrack.innerHTML = list.map((p) => `
+        <article class="prop" data-id="${p.id}" tabindex="0" role="button" aria-label="Ver detalhes de ${p.title}">
+          <div class="prop-media">
+            <img src="${p.images[0]}" alt="${p.title} em ${p.neighborhood}" loading="lazy" onerror="this.style.display='none'" />
+            <span class="prop-tag">${formatType(p.type)}</span>
+            <div class="prop-overlay">
+              <div class="prop-title">${p.title}</div>
+              <div class="prop-loc">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                ${p.neighborhood}
+              </div>
+            </div>
+          </div>
+          <div class="prop-body">
+            <div class="prop-price">${p.price}</div>
+            <div class="prop-specs">
+              <span title="Área"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg> ${p.area} m²</span>
+              <span title="Quartos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 17h20M2 21h20M2 12V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"/><path d="M2 12h20M6 6v4"/></svg> ${p.bedrooms} quartos</span>
+              <span title="Banheiros"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6V3a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v3"/><path d="M3 12h18v3a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4v-3z"/></svg> ${p.bathrooms} banheiros</span>
+              <span title="Vagas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="7" rx="2"/><path d="M5 11V8a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v3"/></svg> ${p.parkingSpaces} vagas</span>
+            </div>
+            <button class="btn btn-primary prop-cta" data-wa="${p.id}">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.7-1.4-1.6-1.6-1.9-.2-.3 0-.4.1-.5.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 0C5.4 0 0 5.4 0 12c0 2.1.6 4.1 1.6 5.8L0 24l6.4-1.6c1.7.9 3.6 1.4 5.6 1.4 6.6 0 12-5.4 12-12S18.6 0 12 0z"/></svg>
+              Tenho Interesse
+            </button>
+          </div>
+        </article>
+      `).join('');
+
+      carTotal.textContent = String(list.length).padStart(2,'0');
+      currentIndex = 0;
+
+      // Dots
+      carDots.innerHTML = list.map((_, i) => `<button class="${i===0?'active':''}" data-i="${i}" aria-label="Ir para imóvel ${i+1}"></button>`).join('');
+      carDots.querySelectorAll('button').forEach(b => b.addEventListener('click', () => goTo(Number(b.dataset.i))));
+
+      // Bind clicks on cards
+      propsTrack.querySelectorAll('.prop').forEach(card => {
+        const open = () => openLightbox(Number(card.dataset.id));
+        card.addEventListener('click', open);
+        card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+      });
+      // Card CTA — must not bubble to card open
+      propsTrack.querySelectorAll('[data-wa]').forEach(btn => {
+        btn.addEventListener('click', e => {
+          e.stopPropagation();
+          const p = properties.find(x => x.id === Number(btn.dataset.wa));
+          const msg = encodeURIComponent(`Olá Gleiciany, tenho interesse no imóvel "${p.title}" em ${p.neighborhood}.`);
+          window.open(`https://wa.me/5500000000000?text=${msg}`, '_blank');
+        });
+      });
+
+      updateCarouselUI();
+      // reset scroll
+      propsTrack.scrollTo({ left: 0, behavior: 'auto' });
+    }
+
+    /* ----- Carousel navigation ----- */
+    function getStep(){
+      const first = propsTrack.querySelector('.prop');
+      if (!first) return 0;
+      const gap = parseFloat(getComputedStyle(propsTrack).gap) || 32;
+      return first.offsetWidth + gap;
+    }
+
+    function goTo(i){
+      const cards = propsTrack.querySelectorAll('.prop');
+      if (!cards.length) return;
+      // Loop infinite both directions
+      const n = ((i % cards.length) + cards.length) % cards.length;
+      currentIndex = n;
+      // Suppress scroll listener during programmatic nav so it doesn't override the target
+      suppressScrollUpdate = true;
+      propsTrack.scrollTo({ left: getStep() * n, behavior: 'smooth' });
+      updateCarouselUI();
+      clearTimeout(goTo._t);
+      goTo._t = setTimeout(() => { suppressScrollUpdate = false; }, 1000);
+    }
+    function next(){ goTo(currentIndex + 1); }
+    function prev(){ goTo(currentIndex - 1); }
+
+    function updateCarouselUI(){
+      const cards = propsTrack.querySelectorAll('.prop');
+      if (!cards.length) return;
+      carCurrent.textContent = String(currentIndex + 1).padStart(2,'0');
+      carDots.querySelectorAll('button').forEach((b, i) => b.classList.toggle('active', i === currentIndex));
+    }
+
+    function setupCarouselNav(){
+      carPrev.addEventListener('click', prev);
+      carNext.addEventListener('click', next);
+
+      // Update index on scroll (snap-driven)
+      let raf = null;
+      propsTrack.addEventListener('scroll', () => {
+        if (suppressScrollUpdate) return;
+        if (raf) return;
+        raf = requestAnimationFrame(() => {
+          raf = null;
+          const step = getStep();
+          if (!step) return;
+          const i = Math.round(propsTrack.scrollLeft / step);
+          const cards = propsTrack.querySelectorAll('.prop');
+          if (!cards.length) return;
+          const n = ((i % cards.length) + cards.length) % cards.length;
+          if (n !== currentIndex){ currentIndex = n; updateCarouselUI(); }
+        });
+      }, { passive: true });
+
+      // Keyboard arrows when carousel is focused / hovered
+      const wrap = document.getElementById('propsWrap');
+      wrap.addEventListener('keydown', e => {
+        if (e.target.closest('.prop') || e.target === propsTrack) {
+          if (e.key === 'ArrowRight'){ e.preventDefault(); next(); }
+          if (e.key === 'ArrowLeft'){ e.preventDefault(); prev(); }
+        }
+      });
+
+      // Mouse drag (desktop) — only acts as drag if user actually moved
+      let isDown = false, didDrag = false, startX = 0, startScroll = 0, moved = 0;
+      const DRAG_THRESHOLD = 6;
+      const begin = (x) => {
+        isDown = true; didDrag = false; moved = 0;
+        startX = x; startScroll = propsTrack.scrollLeft;
+      };
+      const end = () => {
+        if (!isDown) return;
+        isDown = false;
+        propsTrack.classList.remove('is-dragging');
+        if (!didDrag) return; // pure click, let it propagate to the card
+        const step = getStep();
+        const offset = propsTrack.scrollLeft - startScroll;
+        if (Math.abs(offset) > step * 0.2) {
+          goTo(currentIndex + (offset < 0 ? 1 : -1));
+        } else {
+          propsTrack.scrollTo({ left: getStep() * currentIndex, behavior: 'smooth' });
+        }
+      };
+      const move = (x) => {
+        if (!isDown) return;
+        moved = x - startX;
+        if (!didDrag && Math.abs(moved) > DRAG_THRESHOLD) {
+          didDrag = true;
+          propsTrack.classList.add('is-dragging');
+        }
+        if (didDrag) {
+          // direct scroll manipulation while dragging
+          propsTrack.scrollLeft = startScroll - moved;
+        }
+      };
+      // Listen on track for mousedown, on document for move/up (more reliable in headless)
+      propsTrack.addEventListener('mousedown', e => {
+        if (e.button !== 0) return;
+        if (e.target.closest('button,a,input,textarea,select')) return;
+        begin(e.pageX);
+      });
+      document.addEventListener('mousemove', e => move(e.pageX));
+      document.addEventListener('mouseup', end);
+      // Block click after a real drag, allow it on pure click
+      propsTrack.addEventListener('click', e => {
+        if (didDrag) { e.stopPropagation(); e.preventDefault(); }
+      }, true);
+      // Prevent native image drag while we handle it
+      propsTrack.querySelectorAll('img').forEach(im => im.addEventListener('dragstart', e => e.preventDefault()));
+    }
+
+    /* =====================================================
+       TABS
+    ===================================================== */
+    function setupTabs(){
+      const tabs = document.querySelectorAll('.tab');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => t.setAttribute('aria-selected','false'));
+          tab.setAttribute('aria-selected','true');
+          renderProperties(tab.dataset.filter);
+        });
+        tab.addEventListener('keydown', e => {
+          if (e.key === 'ArrowRight' || e.key === 'ArrowLeft'){
+            e.preventDefault();
+            const arr = Array.from(tabs);
+            const i = arr.indexOf(tab);
+            const next = e.key === 'ArrowRight' ? arr[(i+1)%arr.length] : arr[(i-1+arr.length)%arr.length];
+            next.focus(); next.click();
+          }
+        });
+      });
+    }
+
+    /* =====================================================
+       LIGHTBOX MODAL
+    ===================================================== */
+    const lb = document.getElementById('lb');
+    const lbImgs = document.getElementById('lbImgs');
+    const lbThumbs = document.getElementById('lbThumbs');
+    const lbTitle = document.getElementById('lbTitle');
+    const lbLoc = document.getElementById('lbLoc');
+    const lbPrice = document.getElementById('lbPrice');
+    const lbDesc = document.getElementById('lbDesc');
+    const lbSpecs = document.getElementById('lbSpecs');
+    const lbType = document.getElementById('lbType');
+    const lbWa = document.getElementById('lbWa');
+    const lbClose = document.getElementById('lbClose');
+    const lbPrev = document.getElementById('lbPrev');
+    const lbNext = document.getElementById('lbNext');
+
+    let lbCurrent = 0;
+    let lbImages = [];
+
+    function openLightbox(id){
+      const p = properties.find(x => x.id === id);
+      if (!p) return;
+      lbImages = p.images;
+      lbCurrent = 0;
+      lbTitle.textContent = p.title;
+      lbLoc.textContent = p.neighborhood + ' · ' + formatType(p.type);
+      lbPrice.textContent = p.price;
+      lbDesc.textContent = p.desc;
+      lbType.innerHTML = '<span class="hairline"></span> ' + formatType(p.type);
+      lbSpecs.innerHTML = `
+        <div><span>Área</span><span>${p.area} m²</span></div>
+        <div><span>Quartos</span><span>${p.bedrooms}</span></div>
+        <div><span>Banheiros</span><span>${p.bathrooms}</span></div>
+        <div><span>Vagas</span><span>${p.parkingSpaces}</span></div>
+      `;
+      const waMsg = encodeURIComponent(`Olá Gleiciany, gostaria de saber mais sobre "${p.title}" em ${p.neighborhood}.`);
+      lbWa.href = `https://wa.me/5500000000000?text=${waMsg}`;
+
+      lbImgs.innerHTML = lbImages.map((src,i) => `<img src="${src}" alt="${p.title} - foto ${i+1}" class="${i===0?'active':''}" onerror="this.style.display='none'" />`).join('');
+      lbThumbs.innerHTML = lbImages.map((_,i) => `<button class="${i===0?'active':''}" data-i="${i}" aria-label="Foto ${i+1}"></button>`).join('');
+      lbThumbs.querySelectorAll('button').forEach(b => b.addEventListener('click', () => { lbCurrent = Number(b.dataset.i); updateLbImg(); }));
+
+      lb.classList.add('open');
+      lb.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+      lbClose.focus();
+    }
+
+    function closeLightbox(){
+      lb.classList.remove('open');
+      lb.setAttribute('aria-hidden','true');
+      document.body.style.overflow = '';
+    }
+
+    function updateLbImg(){
+      lbImgs.querySelectorAll('img').forEach((im,i) => im.classList.toggle('active', i === lbCurrent));
+      lbThumbs.querySelectorAll('button').forEach((b,i) => b.classList.toggle('active', i === lbCurrent));
+    }
+
+    lbClose.addEventListener('click', closeLightbox);
+    lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+    lbPrev.addEventListener('click', () => { lbCurrent = (lbCurrent - 1 + lbImages.length) % lbImages.length; updateLbImg(); });
+    lbNext.addEventListener('click', () => { lbCurrent = (lbCurrent + 1) % lbImages.length; updateLbImg(); });
+    document.addEventListener('keydown', e => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') { lbCurrent = (lbCurrent - 1 + lbImages.length) % lbImages.length; updateLbImg(); }
+      if (e.key === 'ArrowRight') { lbCurrent = (lbCurrent + 1) % lbImages.length; updateLbImg(); }
+    });
+
+    /* =====================================================
+       ACCORDION
+    ===================================================== */
+    function setupAccordion(){
+      document.querySelectorAll('.faq-trigger').forEach(t => {
+        t.addEventListener('click', () => {
+          const expanded = t.getAttribute('aria-expanded') === 'true';
+          document.querySelectorAll('.faq-trigger').forEach(x => {
+            x.setAttribute('aria-expanded','false');
+            x.nextElementSibling.classList.remove('open');
+          });
+          if (!expanded){
+            t.setAttribute('aria-expanded','true');
+            t.nextElementSibling.classList.add('open');
+          }
+        });
+      });
+    }
+
+    /* =====================================================
+       NAV — scroll state + smooth scroll
+    ===================================================== */
+    function setupNav(){
+      const nav = document.getElementById('nav');
+      const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
+      window.addEventListener('scroll', onScroll, { passive:true });
+      onScroll();
+    }
+
+    /* =====================================================
+       REVEAL ON SCROLL
+    ===================================================== */
+    function setupReveal(){
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+      // Safety: anything still hidden after 2.5s gets revealed (prevents invisible sections)
+      setTimeout(() => document.querySelectorAll('.reveal:not(.in)').forEach(el => el.classList.add('in')), 2500);
+    }
+
+    /* =====================================================
+       STATS COUNTER
+    ===================================================== */
+    function setupCounters(){
+      const nums = document.querySelectorAll('[data-count]');
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (!e.isIntersecting) return;
+          const el = e.target;
+          const target = Number(el.dataset.count);
+          const dur = 1400;
+          const start = performance.now();
+          const tick = (t) => {
+            const p = Math.min((t - start) / dur, 1);
+            const eased = 1 - Math.pow(1 - p, 3);
+            el.textContent = Math.round(target * eased).toLocaleString('pt-BR');
+            if (p < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+          io.unobserve(el);
+        });
+      }, { threshold: 0.5 });
+      nums.forEach(n => io.observe(n));
+    }
+
+    /* =====================================================
+       HERO LOADER + REVEAL
+    ===================================================== */
+    function setupHero(){
+      const hero = document.querySelector('.hero');
+      const heroImg = hero.querySelector('.hero-bg img');
+      let loaded = false;
+      const reveal = () => {
+        if (loaded) return; loaded = true;
+        hero.classList.add('loaded');
+        setTimeout(() => document.getElementById('loader').classList.add('hide'), 200);
+      };
+      if (heroImg && heroImg.complete) reveal();
+      else if (heroImg) heroImg.addEventListener('load', reveal);
+      setTimeout(reveal, 1800); // safety fallback
+    }
+
+    /* =====================================================
+       INIT
+    ===================================================== */
+    document.getElementById('year').textContent = new Date().getFullYear();
+    setupNav();
+    setupTabs();
+    setupCarouselNav();
+    setupAccordion();
+    setupReveal();
+    setupCounters();
+    setupHero();
+    renderProperties('todos');
+  </script>
+<style>
+#minimax-floating-ball {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 12px;
+  background: #222222;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  color: #F8F8F8;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  z-index: 9999;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+#minimax-floating-ball:hover {
+  transform: translateY(-2px);
+  background: #383838;
+}
+.minimax-ball-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.minimax-logo-wave {
+  width: 20px;
+  height: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg%20preserveAspectRatio%3D%27none%27%20width%3D%27100%25%27%20height%3D%27100%25%27%20overflow%3D%27visible%27%20style%3D%27display%3A%20block%3B%27%20viewBox%3D%270%200%20170.136%20138.225%27%20fill%3D%27none%27%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%3E%3Cg%20id%3D%27Frame%202116748449%27%3E%3Cpath%20id%3D%27Subtract%27%20d%3D%27M170%20101.783C170%20105.144%20168.49%20108.327%20165.886%20110.453L134.963%20135.702C132.964%20137.334%20130.463%20138.225%20127.883%20138.225H10.4938C4.69824%20138.225%200%20133.527%200%20127.732V39.2289C0%2035.8597%201.51758%2032.6698%204.13162%2030.5442L38.5402%202.56547C40.536%200.942662%2043.0298%200.0567377%2045.602%200.0567377H159.506C165.302%200.0567377%20170%204.75498%20170%2010.5506V101.783Z%27%20fill%3D%27black%27%20style%3D%27fill%3Ablack%3Bfill-opacity%3A1%3B%27/%3E%3Cpath%20id%3D%27Subtract_2%27%20d%3D%27M149.011%2094.4632C149.011%2096.1471%20148.253%2097.7415%20146.946%2098.8043L125.893%20115.936C124.895%20116.748%20123.648%20117.191%20122.361%20117.191H24.6479C22.716%20117.191%2021.15%20115.625%2021.15%20113.693V46.1166C21.15%2044.4267%2021.9135%2042.8274%2023.2274%2041.7648L47.367%2022.2437C48.3638%2021.4376%2049.607%2020.9982%2050.8888%2020.9988L145.514%2021.0427C147.446%2021.0436%20149.011%2022.6094%20149.011%2024.5406V94.4632Z%27%20fill%3D%27white%27%20style%3D%27fill%3Awhite%3Bfill-opacity%3A1%3B%27/%3E%3Cpath%20id%3D%27Rectangle%20111142564%27%20d%3D%27M42.111%2080.8025C42.111%2077.7115%2044.6167%2075.2057%2047.7077%2075.2057H60.9999C64.0908%2075.2057%2066.5966%2077.7115%2066.5966%2080.8025V121.029H42.111V80.8025Z%27%20fill%3D%27black%27%20style%3D%27fill%3Ablack%3Bfill-opacity%3A1%3B%27/%3E%3Cpath%20id%3D%27Rectangle%20111142567%27%20d%3D%27M79.1894%2080.8025C79.1894%2077.7115%2081.6952%2075.2057%2084.7861%2075.2057H98.0783C101.169%2075.2057%20103.675%2077.7115%20103.675%2080.8025V121.029H79.1894V80.8025Z%27%20fill%3D%27black%27%20style%3D%27fill%3Ablack%3Bfill-opacity%3A1%3B%27/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 14px 11px;
+  background-color: #8FD1FF;
+  border-radius: 4px;
+}
+
+.minimax-ball-text {
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.minimax-close-icon {
+  margin-left: 8px;
+  font-size: 16px;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.minimax-close-icon:hover {
+  opacity: 1;
+}
+</style>
+<div id="minimax-floating-ball">
+  <div class="minimax-ball-content">
+    <div class="minimax-logo-wave"></div>
+    <span class="minimax-ball-text">Created by MiniMax Agent</span>
+  </div>
+  <div class="minimax-close-icon">×</div>
+</div>
+<script>
+// Initialize floating ball functionality
+function initFloatingBall() {
+  const ball = document.getElementById('minimax-floating-ball');
+  if (!ball) return;
+
+  // Initial animation
+  ball.style.opacity = '0';
+  ball.style.transform = 'translateY(20px)';
+
+  setTimeout(() => {
+    ball.style.opacity = '1';
+    ball.style.transform = 'translateY(0)';
+  }, 500);
+
+  // Handle logo click
+  const ballContent = ball.querySelector('.minimax-ball-content');
+  ballContent.addEventListener('click', function (e) {
+    e.stopPropagation();
+    window.open('https://agent.minimax.io/', '_blank');
+    ball.style.transform = 'scale(0.95)';
+    setTimeout(() => {
+      ball.style.transform = 'scale(1)';
+    }, 100);
+  });
+
+  // Handle close button click
+  const closeIcon = ball.querySelector('.minimax-close-icon');
+  closeIcon.addEventListener('click', function (e) {
+    e.stopPropagation();
+    ball.style.opacity = '0';
+    ball.style.transform = 'translateY(20px)';
+
+    setTimeout(() => {
+      ball.style.display = 'none';
+    }, 300);
+  });
+}
+
+// Initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', initFloatingBall); 
+</script>
+</body>
+</html>
