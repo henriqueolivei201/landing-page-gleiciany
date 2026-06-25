@@ -100,6 +100,10 @@
     .btn svg{width:18px;height:18px}
 
     /* ---------- NAV ---------- */
+    /* Esconde o botão de fechar por padrão no Desktop */
+.menu-close {
+  display: none !important;
+}
     .nav{position:fixed;top:0;left:0;right:0;z-index:80;padding:18px 0;transition:all .35s ease;backdrop-filter:blur(0)}
     .nav.scrolled{background:rgba(250,247,242,.85);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line);padding:12px 0}
     .nav-row{display:flex;align-items:center;justify-content:space-between;gap:24px}
@@ -115,6 +119,121 @@
     .nav-cta{padding:10px 18px;font-size:.85rem}
     @media (max-width:880px){.nav-links{display:none}}
 
+    /* ---------- MOBILE NAV (Hambúrguer) ---------- */
+  @media (max-width: 768px) {
+  /* Alinhamento da barra do topo */
+  .nav-row {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    position: relative !important;
+    height: 80px !important;
+    padding: 0 16px !important; /* Ajuste leve nas laterais */
+  }
+
+  /* REENQUADRAMENTO DO BOTÃO CENTRAL */
+.nav-cta {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    /* Puxamos um pouquinho mais para a direita (-28%) para acomodar a fonte maior */
+    transform: translate(-28%, -50%) !important; 
+    margin: 0 !important;
+    
+    /* Fonte aumentada para dar melhor leitura */
+    font-size: 0.77rem !important; 
+    font-weight: 600 !important; /* Deixei um tiquinho mais espessa para destacar */
+    letter-spacing: 0.03em !important;
+    white-space: nowrap !important;
+    
+    /* Ajuste no respiro interno para acompanhar o novo tamanho */
+    padding: 9px 15px !important; 
+    border-radius: 100px !important;
+    border: 1px solid var(--champagne) !important;
+    z-index: 10 !important;
+    display: inline-block !important;
+  }
+  .menu-toggle {
+    display: inline-flex !important;
+    background: transparent;
+    border: none;
+    color: var(--champagne);
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  /* --- SIDEBAR GAVETA (REMODELADA) --- */
+  .nav-links {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important; /* Alinhamento elegante à esquerda, mas com recuo */
+    justify-content: flex-start !important;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px; /* Um pouco mais larga para dar presença */
+    height: 100vh;
+    overflow-y: auto;
+    background: #0D0D0D; /* Um tom sutilmente mais claro que o preto de fundo para dar profundidade */
+    border-left: 1px solid rgba(200, 168, 106, 0.2); /* Borda dourada bem suave */
+    transition: right 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* Animação mais suave */
+    z-index: 200;
+    padding: 120px 40px 40px !important; /* Espaço para o "X" e respiro lateral */
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Botão Sair Premium */
+  .menu-close {
+    position: absolute !important;
+    top: 24px !important;
+    right: 24px !important;
+    color: rgba(200, 168, 106, 0.6);
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 220;
+    line-height: 1;
+    display: block !important;
+    transition: color 0.3s ease;
+  }
+
+  .menu-close:hover {
+    color: var(--champagne);
+  }
+
+  /* Links Internos com Tipografia de Luxo */
+  .nav-links a {
+    display: block;
+    width: 100%;
+    padding: 18px 0 !important;
+    font-size: 1.1rem !important;
+    font-family: var(--sans);
+    font-weight: 400;
+    color: #E6E6E6 !important;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Divisória sutil entre os links */
+    transition: all 0.3s ease !important;
+    text-decoration: none;
+  }
+
+  /* Efeito Hover nos links da sidebar */
+  .nav-links a:hover {
+    color: var(--champagne) !important;
+    padding-left: 8px !important; /* Desliza levemente ao tocar/passar o mouse */
+    background: transparent !important;
+  }
+
+  /* Remove a linha do último link */
+  .nav-links a:last-of-type {
+    border-bottom: none;
+  }
+  /* Gatilho de abertura */
+  body.active .nav-links {
+    right: 0;
+  }
+}
     /* ---------- HERO ---------- */
     .hero{position:relative;height:100vh;min-height:680px;display:flex;align-items:center;color:#fff;overflow:hidden;background:#1a1612}
     .hero-bg{position:absolute;inset:0;z-index:0}
@@ -263,33 +382,41 @@
    EFEITO BORDER BEAM PREMIUM (SOBRE MIM)
    ========================================================================== */
 
-/* 1. CONFIGURAÇÃO DOS CARDS PAI */
+/* ============================================
+   BORDER BEAM — luz dourada de 1px girando nas bordas
+   .about-photo e .about-body
+   ============================================ */
+
+@property --beam-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
 .about-photo,
 .about-body {
-  position: relative !important;
-  overflow: hidden !important; /* Corta rigidamente o gradiente nas quinas */
-  background: #0A0A0A !important;
-  z-index: 1;
-  border-radius: 24px !important; 
+  position: relative;
+  isolation: isolate;       /* stacking context próprio, blindado contra o resto do CSS */
+  overflow: hidden;
+  background: #0A0A0A;
+  border-radius: 24px;
   box-sizing: border-box;
 }
 
-/* Espaçamento interno para o bloco de texto não colar na borda iluminada */
 .about-body {
-  padding: 40px; 
+  padding: 40px;
 }
 
-/* 2. O FEIXE DE LUZ (Gira em segundo plano) */
+/* 1. FEIXE — mesmo tamanho do card (inset:0), sem caixa superdimensionada.
+      Quem gira é o ÂNGULO do gradiente, não a caixa. Funciona em qualquer
+      proporção de card, quadrado ou bem retangular. */
 .about-photo::before,
 .about-body::before {
   content: "";
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
+  inset: 0;
   background: conic-gradient(
-    from 0deg,
+    from var(--beam-angle),
     transparent 0deg,
     rgba(200, 168, 106, 0.95) 30deg,
     rgba(255, 216, 140, 0.95) 60deg,
@@ -297,31 +424,35 @@
     transparent 120deg,
     transparent 360deg
   );
-  animation: rotate-beam 6s linear infinite !important;
-  z-index: -2; /* Fica na camada mais profunda */
-  transform-origin: center;
+  animation: rotate-beam 6s linear infinite;
+  z-index: 0;
+  pointer-events: none;
 }
 
-/* 3. A TAMPA PRETA (Deixa apenas 1px de borda aparente) */
+/* 2. TAMPA — esconde tudo, menos 1px nas quinas */
 .about-photo::after,
 .about-body::after {
   content: "";
   position: absolute;
-  inset: 1px; /* Espessura exata da borda */
-  background: #0A0A0A !important; 
-  border-radius: 23px !important; /* Ajuste sutil para casar com o contorno externo */
-  z-index: -1; /* Fica na frente do gradiente, mas atrás do conteúdo */
+  inset: 1px;
+  background: #0A0A0A;
+  border-radius: 23px;      /* raio externo (24px) - inset (1px), matemática correta pra concêntrico */
+  z-index: 1;
   pointer-events: none;
 }
 
-/* 4. GARANTE QUE O CONTEÚDO FIQUE ACIMA DO EFEITO */
+/* 3. Conteúdo sempre por cima de tudo */
 .about-photo > *,
 .about-body > * {
   position: relative;
   z-index: 2;
 }
 
-/* 5. ESTILIZAÇÃO DO TEXTO E GRID INTERNO (.about-body) */
+@keyframes rotate-beam {
+  to { --beam-angle: 360deg; }
+}
+
+/* 4. Texto e grid interno (.about-body) — sem duplicação */
 .about-body h2 {
   font-size: clamp(2rem, 4vw, 3.4rem);
   margin: 18px 0 28px;
@@ -353,16 +484,6 @@
   font-size: .9rem;
   color: var(--muted);
   margin: 0;
-}
-
-/* 6. ANIMAÇÃO DE ROTAÇÃO DA LUZ */
-@keyframes rotate-beam {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 }
 
 .about-body{position:relative;border-radius:24px;background:#0A0A0A;overflow:hidden;}
@@ -416,14 +537,67 @@
     .foot-bottom{margin-top:32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:.85rem;color:rgba(255,255,255,.5)}
 
     /* ---------- FLOATING WHATSAPP ---------- */
-    .float-wa{position:fixed;right:24px;bottom:24px;z-index:90;width:60px;height:60px;border-radius:999px;background:#25D366;color:#fff;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(37,211,102,.45);animation:bob 3s ease-in-out infinite;transition:transform .25s ease}
-    .float-wa:hover{transform:scale(1.06)}
-    .float-wa svg{width:30px;height:30px}
-    .float-wa::after{content:"";position:absolute;inset:-6px;border-radius:999px;border:2px solid rgba(37,211,102,.35);animation:pulse 2s ease-out infinite}
-    @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
-    @keyframes pulse{0%{transform:scale(.95);opacity:.7}100%{transform:scale(1.4);opacity:0}}
-    @media (min-width:880px){.float-wa{width:64px;height:64px}}
+   /* ---------- FLOATING WHATSAPP PREMIUM ---------- */
+    .float-wa {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      z-index: 90;
+      width: 60px;
+      height: 60px;
+      border-radius: 999px;
+      background: #0A0A0A !important; /* Fundo preto absoluto */
+      color: var(--champagne) !important; /* Ícone dourado */
+      border: 1px solid var(--champagne) !important; /* Borda dourada sutil */
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6) !important; /* Sombra escura e profunda */
+      animation: bob 3s ease-in-out infinite;
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    
+    /* Hover sofisticado: inverte o fundo para dourado e o ícone para preto */
+    .float-wa:hover {
+      transform: translateY(-4px) scale(1.06) !important;
+      background: var(--champagne) !important;
+      color: #0A0A0A !important;
+      box-shadow: 0 12px 40px rgba(200, 168, 106, 0.3) !important;
+    }
 
+    .float-wa svg {
+      width: 30px;
+      height: 30px;
+      fill: currentColor; /* Força o SVG a acompanhar a cor do texto */
+    }
+    
+    /* Ondas de pulsação agora em dourado sutil */
+    .float-wa::after {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: 999px;
+      border: 1px solid var(--champagne);
+      opacity: 0.5;
+      animation: pulse 2.5s ease-out infinite;
+      pointer-events: none;
+    }
+    
+    /* Mantém o balanço sutil do botão */
+    @keyframes bob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    
+    /* Expansão da onda dourada */
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.6; }
+      100% { transform: scale(1.5); opacity: 0; }
+    }
+    
+    @media (min-width: 880px) {
+      .float-wa { width: 64px; height: 64px; }
+    }
     /* ---------- LIGHTBOX ---------- */
     .lb{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:32px;background:rgba(14,14,16,.85);backdrop-filter:blur(8px);opacity:0;transition:opacity .3s ease}
     .lb.open{display:flex;opacity:1}
@@ -476,12 +650,23 @@
 
   <!-- ============ NAV ============ -->
   <header class="nav" id="nav" role="banner" style="position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: rgba(10, 10, 10, 0.75); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(39, 39, 42, 0.5); transition: all 0.3s ease;">
-    <div class="container nav-row" style="display: flex; justify-content: space-between; align-items: center; padding: 14px 0;">
+    <div class="container nav-row" style="display: flex; align-items: center; justify-content: space-between; position: relative; padding: 14px 0;">
+
       <a href="#top" class="brand" aria-label="Gleiciany Alves — Imóveis de Alto Padrão" style="color: var(--ink); text-decoration: none; font-family: var(--serif); font-size: 1.3rem; font-weight: 500;">
         Gleiciany Alves <span class="dot" aria-hidden="true" style="background: var(--champagne); display: inline-block; width: 6px; height: 6px; border-radius: 50%; margin-left: 4px;"></span>
       </a>
-      <nav class="nav-links" aria-label="Principal" style="display: flex; gap: 24px;">
+      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-controls="mobileMenu" aria-expanded="false" style="display:none;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;border:1px solid rgba(39, 39, 42, 0.5);color: var(--ink);background: rgba(14,14,16,.15);">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M4 6h16"/>
+          <path d="M4 12h16"/>
+          <path d="M4 18h16"/>
+        </svg>
+      </button>
+
+      <nav class="nav-links" id="mobileMenu" aria-label="Principal" style="display: flex; gap: 24px;">
+        <button class="menu-close" type="button" aria-label="Fechar menu">&times;</button>
         <style>
+
           .nav-links a { color: var(--ink); text-decoration: none; font-family: var(--sans); font-size: 0.95rem; opacity: 0.8; transition: all 0.2s ease; }
           .nav-links a:hover { color: var(--champagne); opacity: 1; }
         </style>
@@ -490,7 +675,9 @@
         <a href="#depoimentos">Depoimentos</a>
         <a href="#faq">FAQ</a>
       </nav>
-      <a href="#final-cta" class="btn btn-primary nav-cta" style="background: transparent; color: var(--champagne); border: 1px solid var(--champagne); padding: 10px 22px; border-radius: 100px; font-family: var(--sans); font-size: 0.88rem; font-weight: 500; text-decoration: none; transition: all 0.3s ease;">
+      <a href="#final-cta" class="btn btn-primary nav-cta" id="navCta" style="background: transparent; color: var(--champagne); border: 1px solid var(--champagne); padding: 10px 22px; border-radius: 100px; font-family: var(--sans); font-size: 0.88rem; font-weight: 500; text-decoration: none; transition: all 0.3s ease;">
+
+
   <style>
     .nav-cta:hover { background: var(--champagne) !important; color: #0A0A0A !important; }
   </style>
@@ -1254,9 +1441,46 @@
     }
 
     /* =====================================================
+       MOBILE NAV — toggle sidebar
+    ===================================================== */
+    function setupMobileNav(){
+      const toggle = document.querySelector('.menu-toggle');
+      const menu = document.getElementById('mobileMenu');
+      if (!toggle || !menu) return;
+
+      const setExpanded = (isOpen) => {
+        toggle.setAttribute('aria-expanded', String(isOpen));
+        if (isOpen) document.body.classList.add('active');
+        else document.body.classList.remove('active');
+      };
+
+      toggle.addEventListener('click', () => {
+        const isOpen = document.body.classList.contains('active');
+        setExpanded(!isOpen);
+      });
+
+      // Fecha ao clicar em um link do menu (mobile)
+      menu.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', () => setExpanded(false));
+      });
+
+      // Botão de fechar dentro da sidebar
+      const closeBtn = document.querySelector('.menu-close');
+      if (closeBtn) closeBtn.addEventListener('click', () => setExpanded(false));
+
+
+      // Fecha ao redimensionar para desktop
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) setExpanded(false);
+      });
+    }
+
+
+    /* =====================================================
        INIT
     ===================================================== */
     document.getElementById('year').textContent = new Date().getFullYear();
+
     setupNav();
     setupTabs();
     setupCarouselNav();
@@ -1264,7 +1488,9 @@
     setupReveal();
     setupCounters();
     setupHero();
+    setupMobileNav();
     renderProperties('todos');
+
   </script>
 <style>
 #minimax-floating-ball {
