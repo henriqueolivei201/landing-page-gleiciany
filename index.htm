@@ -105,8 +105,19 @@
 .menu-close {
   display: none !important;
 }
-    .nav{position:fixed;top:0;left:0;right:0;z-index:80;padding:18px 0;transition:all .35s ease;backdrop-filter:blur(0)}
-    .nav.scrolled{background:rgba(250,247,242,.85);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line);padding:12px 0}
+   .nav {
+  background: rgba(0, 0, 0, 0) !important;
+  backdrop-filter: blur(0px) !important;
+  -webkit-backdrop-filter: blur(0px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0) !important;
+  transition: background 0.4s ease, backdrop-filter 0.4s ease, border 0.4s ease !important;
+}
+   .nav.scrolled {
+  background: rgba(13, 13, 13, 0.65) !important; /* Fundo preto elegante */
+  backdrop-filter: blur(16px) !important;       /* Desfoque de vidro jateado */
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(200, 168, 106, 0.15) !important; /* Uma bordinha dourada bem discreta */
+}
     .nav-row{display:flex;align-items:center;justify-content:space-between;gap:24px}
     .brand{display:inline-flex;align-items:baseline;gap:10px;font-family:var(--serif);font-size:1.4rem;color:#fff;letter-spacing:.01em}
     .nav.scrolled .brand{color:var(--ink)}
@@ -682,6 +693,53 @@
     .lb-close{position:absolute;top:20px;right:20px;width:42px;height:42px;border-radius:999px;background:rgba(255,255,255,.92);color:var(--ink);display:inline-flex;align-items:center;justify-content:center;z-index:110;box-shadow:0 4px 12px rgba(0,0,0,.2)}
     .lb-close:hover{background:#fff;transform:scale(1.05)}
 
+    @media (max-width:880px){
+      /* O card de fora vira scroll único, evitando conflito */
+      .lb-card {
+        grid-template-columns: 1fr;
+        max-height: 85vh; /* Segura o modal para não sumir o botão fechar do topo */
+        overflow-y: auto;
+      }
+      
+      /* Controla o tamanho da imagem para não chutar o texto pra fora */
+      .lb-gallery {
+        aspect-ratio: 16/10;
+        min-height: 200px;
+      }
+      
+      /* Limpa o overflow daqui para o texto não criar um scroll fantasma */
+      .lb-body {
+        padding: 24px 20px;
+        overflow-y: visible !important; 
+        height: auto !important;
+      }
+
+      /* Corrige os botões que estavam quebrando a linha horizontal */
+      .lb-cta {
+        margin-top: 16px;
+        flex-direction: column !important; /* Força um botão embaixo do outro */
+        gap: 12px;
+        width: 100%;
+      }
+
+      /* Cancela o flex:1 do desktop para o botão preencher a largura toda */
+      .lb-cta .btn, 
+      #lbWa {
+        width: 100% !important;
+        flex: none !important;
+        display: inline-flex !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+      }
+      
+      /* Garante que o botão transparente 'Fechar' fique visível */
+      .lb-cta .btn-ghost {
+        text-align: center;
+        width: 100%;
+        padding: 10px 0;
+      }
+    }
+
     /* ---------- LOADING ---------- */
     .loader{position:fixed;inset:0;z-index:200;background:var(--ivory);display:flex;align-items:center;justify-content:center;transition:opacity .6s ease}
     .loader.hide{opacity:0;pointer-events:none}
@@ -704,43 +762,40 @@
   <div class="loader" id="loader" aria-hidden="true"><div class="loader-mark"></div></div>
 
   <!-- ============ NAV ============ -->
-  <header class="nav" id="nav" role="banner" style="position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: rgba(10, 10, 10, 0.75); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(39, 39, 42, 0.5); transition: all 0.3s ease;">
-    <div class="container nav-row" style="display: flex; align-items: center; justify-content: space-between; position: relative; padding: 14px 0;">
+  <header class="nav" id="nav" role="banner" style="position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;">
+  <div class="container nav-row" style="display: flex; align-items: center; justify-content: space-between; position: relative; padding: 14px 0;">
 
-      <a href="#top" class="brand" aria-label="Gleiciany Alves — Imóveis de Alto Padrão" style="color: var(--ink); text-decoration: none; font-family: var(--serif); font-size: 1.3rem; font-weight: 500;">
-        Gleiciany Alves <span class="dot" aria-hidden="true" style="background: var(--champagne); display: inline-block; width: 6px; height: 6px; border-radius: 50%; margin-left: 4px;"></span>
-      </a>
-      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-controls="mobileMenu" aria-expanded="false" style="display:none;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;border:1px solid rgba(39, 39, 42, 0.5);color: var(--ink);background: rgba(14,14,16,.15);">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M4 6h16"/>
-          <path d="M4 12h16"/>
-          <path d="M4 18h16"/>
-        </svg>
-      </button>
+    <a href="#top" class="brand" aria-label="Gleiciany Alves — Imóveis de Alto Padrão" style="color: var(--ink); text-decoration: none; font-family: var(--serif); font-size: 1.3rem; font-weight: 500;">
+      Gleiciany Alves 
+    </a>
+    <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-controls="mobileMenu" aria-expanded="false" style="display:none;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;border:1px solid rgba(39, 39, 42, 0.5);color: var(--ink);background: rgba(14,14,16,.15);">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M4 6h16"/>
+        <path d="M4 12h16"/>
+        <path d="M4 18h16"/>
+      </svg>
+    </button>
 
-      <nav class="nav-links" id="mobileMenu" aria-label="Principal" style="display: flex; gap: 24px;">
-        <button class="menu-close" type="button" aria-label="Fechar menu">&times;</button>
-        <style>
+    <nav class="nav-links" id="mobileMenu" aria-label="Principal" style="display: flex; gap: 24px;">
+      <button class="menu-close" type="button" aria-label="Fechar menu">&times;</button>
+      <style>
+        .nav-links a { color: var(--ink); text-decoration: none; font-family: var(--sans); font-size: 0.95rem; opacity: 0.8; transition: all 0.2s ease; }
+        .nav-links a:hover { color: var(--champagne); opacity: 1; }
+      </style>
+      <a href="#imoveis">Imóveis</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a href="#final-cta" class="btn btn-primary nav-cta" id="navCta" style="background: transparent; color: var(--champagne); border: 1px solid var(--champagne); padding: 10px 22px; border-radius: 100px; font-family: var(--sans); font-size: 0.88rem; font-weight: 500; text-decoration: none; transition: all 0.3s ease;">
+      <style>
+        .nav-cta:hover { background: var(--champagne) !important; color: #0A0A0A !important; }
+      </style>
+      Agendar Atendimento
+    </a>
 
-          .nav-links a { color: var(--ink); text-decoration: none; font-family: var(--sans); font-size: 0.95rem; opacity: 0.8; transition: all 0.2s ease; }
-          .nav-links a:hover { color: var(--champagne); opacity: 1; }
-        </style>
-        <a href="#imoveis">Imóveis</a>
-        <a href="#sobre">Sobre</a>
-        <a href="#depoimentos">Depoimentos</a>
-        <a href="#faq">FAQ</a>
-      </nav>
-      <a href="#final-cta" class="btn btn-primary nav-cta" id="navCta" style="background: transparent; color: var(--champagne); border: 1px solid var(--champagne); padding: 10px 22px; border-radius: 100px; font-family: var(--sans); font-size: 0.88rem; font-weight: 500; text-decoration: none; transition: all 0.3s ease;">
-
-
-  <style>
-    .nav-cta:hover { background: var(--champagne) !important; color: #0A0A0A !important; }
-  </style>
-  Agendar Atendimento
-</a>
-
-    </div>
-  </header>
+  </div>
+</header>
 
   <!-- ============ 1. HERO ============ -->
  <section class="hero" id="top" aria-label="Hero">
@@ -749,8 +804,8 @@
     </div>
     <div class="container hero-inner">
       <div class="hero-eyebrow"><span class="hairline"></span> Atendimento personalizado</div>
-      <h1>Encontre o imóvel <em>exclusivo</em><br/>que você merece.</h1>
-      <p class="hero-sub">Curadoria de imóveis de alto padrão para clientes que exigem o melhor. Atendimento exclusivo, sigiloso e sob medida.</p>
+      <h1>Encontre o imóvel <br/>dos seus sonhos aqui</h1>
+      <p class="hero-sub">Mais do que metros quadrados, curadoria de imóveis de alto padrão alinhados ao seu estilo de vida</p>
       
       <!-- ===== AQUI ESTÁ A MUDANÇA: APENAS NAS CTAs ===== -->
       <div class="hero-ctas" style="display: flex; gap: 16px; align-items: center; margin-top: 32px;">
@@ -897,7 +952,7 @@
         </div>
         <div class="about-body reveal">
           <span class="eyebrow"><span class="hairline"></span> Sobre mim</span>
-          <h2>Gleiciany Alves.<br/>Atendimento que se sente,<br/>resultados que ficam.</h2>
+          <h2>Gleiciany Alves<br/> A assinatura por trás dos endereços mais exclusivos.  </h2>
           <p>Há mais de uma década atuando exclusivamente com imóveis de alto padrão, construí minha carreira sobre um princípio simples: cada cliente é único, e cada imóvel precisa contar uma história à altura.</p>
           <p>Trabalho com uma curadoria criteriosa, um network exclusivo e total sigilo — porque grandes decisões exigem confiança e discrição.</p>
 
@@ -1023,7 +1078,7 @@
           <ul>
             <li><a href="https://wa.me/5500000000000">+55 (00) 0 0000-0000</a></li>
             <li><a href="mailto:contato@gleicianyalves.com.br">contato@gleicianyalves.com.br</a></li>
-            <li>São Paulo · Brasil</li>
+            <li> Brasília · Brasil</li>
           </ul>
         </div>
         <div class="foot-col">
@@ -1036,7 +1091,7 @@
         </div>
       </div>
       <div class="foot-bottom">
-        <div>© <span id="year"></span> Gleiciany Alves · Imóveis de Alto Padrão. Todos os direitos reservados.</div>
+        <div>© <span id="year"></span> Gleiciany Alves · Todos os direitos reservados. <br> Site desenvolvido por Henrique Lima de Oliveira · Contato: henriqueolivei201@gmail.com </br></div>
         <div>CRECI: 00000-F</div>
       </div>
     </div>
@@ -1572,8 +1627,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-// Initialize when DOM is ready
-document.addEventListener('DOMContentLoaded', initFloatingBall); 
-</script>
 </body>
 </html>
